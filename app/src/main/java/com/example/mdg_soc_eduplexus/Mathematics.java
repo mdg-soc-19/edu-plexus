@@ -49,6 +49,24 @@ public class Mathematics extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        View v5;
+        v5 = findViewById(R.id.cardViewConicSection);
+        v5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Mathematics.this, ConicSection.class);
+                startActivity(i);
+            }
+        });
+        View v6;
+        v6 = findViewById(R.id.cardViewDifferentialCalculus);
+        v6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Mathematics.this, DifferentialCalculus.class);
+                startActivity(i);
+            }
+        });
 
 
 

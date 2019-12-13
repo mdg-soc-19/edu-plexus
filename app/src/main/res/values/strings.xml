@@ -31,4 +31,5 @@
     <string name="Geometry">3D Geometry</string>
     <string name="Trigonometry">Trigonometry</string>
     <string name="Conic">Conic Section</string>
+    <string name="DifferentialCalculus">Differential Calculus</string>
 </resources>

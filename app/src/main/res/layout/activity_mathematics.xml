@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +8,15 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="5"
+            android:columnCount="1">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewIntegration"
         android:layout_width="411dp"
+        android:layout_rowWeight="1"
         android:layout_height="146dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#00302F2F"
@@ -51,15 +57,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
     </androidx.cardview.widget.CardView>
-    </androidx.core.widget.NestedScrollView>
-    <androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewProbability"
         android:layout_width="411dp"
         android:layout_height="146dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#00302F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +91,7 @@
             android:layout_marginLeft="150dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/almendra_sc"
-            android:text="@string/Probability"
+            android:text="Algebtra"
             android:textSize="48sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,15 +100,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
     </androidx.cardview.widget.CardView>
-</androidx.core.widget.NestedScrollView>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3dGeometry"
         android:layout_width="411dp"
         android:layout_height="146dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#00302F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,15 +143,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
     </androidx.cardview.widget.CardView>
-    </androidx.core.widget.NestedScrollView>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewTrigonometry"
         android:layout_width="411dp"
         android:layout_height="146dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#00302F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -192,15 +186,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
     </androidx.cardview.widget.CardView>
-    </androidx.core.widget.NestedScrollView>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewConicSection"
         android:layout_width="411dp"
         android:layout_height="146dp"
-        android:layout_marginTop="730dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#00302F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -226,11 +216,11 @@
         <TextView
             android:id="@+id/textView1429"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/almendra_sc"
-            android:text="@string/Conic"
+            android:text="Coordinate Geometry"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -239,5 +229,49 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
     </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewDifferentialCalculus"
+                android:layout_width="411dp"
+                android:layout_height="146dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#00302F2F"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                app:layout_constraintVertical_bias="0.442">
+
+                <ImageView
+                    android:id="@+id/imageView462"
+                    android:layout_width="135dp"
+                    android:layout_height="122dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@android:string/ok"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.044"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/mathicon" />
+
+                <TextView
+                    android:id="@+id/textView1423"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/almendra_sc"
+                    android:text="@string/DifferentialCalculus"
+                    android:textSize="40sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.463"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.393" />
+            </androidx.cardview.widget.CardView>
+    </GridLayout>
 </androidx.core.widget.NestedScrollView>
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
