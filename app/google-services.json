@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "610262082741",
+    "firebase_url": "https://mdg-eduplexus-discussionforum.firebaseio.com",
+    "project_id": "mdg-eduplexus-discussionforum",
+    "storage_bucket": "mdg-eduplexus-discussionforum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610262082741:android:30585af0b9b4e355a80afc",
+        "android_client_info": {
+          "package_name": "com.example.mdg_soc_eduplexus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610262082741-g8h8p3l1orgalucq33c1v45v0shbvsp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEfxckrvNJywkAqO7-P5z3OiQ_mIkeULw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610262082741-g8h8p3l1orgalucq33c1v45v0shbvsp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
