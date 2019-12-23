@@ -5,10 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FoemulaDeck">
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="146dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#00302F2F"
@@ -53,11 +59,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="146dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         app:cardBackgroundColor="#00302F2F"
@@ -92,7 +98,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/almendra_sc"
             android:text="@string/Chemistry"
-            android:textSize="48sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.609"
@@ -103,9 +109,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="146dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="10dp"
         app:cardBackgroundColor="#00302F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,5 +151,7 @@
             app:layout_constraintVertical_bias="0.393" />
 
     </androidx.cardview.widget.CardView>
+</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.cardview.widget.CardView>

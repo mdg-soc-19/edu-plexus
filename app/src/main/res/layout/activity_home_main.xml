@@ -8,10 +8,11 @@
     android:orientation="vertical"
     tools:context=".HomeMain">
 
+
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="425dp"
-        android:layout_height="405dp"
+        android:layout_width="409dp"
+        android:layout_height="391dp"
         android:columnCount="2"
         android:padding="14dp"
         android:rowCount="2"
@@ -201,7 +202,6 @@
 
 
     </GridLayout>
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="298dp"
@@ -212,5 +212,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/logo2" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="114dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/capture3"
+        android:text="Logout"
+        android:textColor="@android:color/holo_orange_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
