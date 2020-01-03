@@ -75,7 +75,7 @@ public class QuestionAnswer extends AppCompatActivity {
 
         QuizDbHelper dbHelper = new QuizDbHelper(this);
         if (testNumber == 1){
-        questionList = dbHelper.getAllQuestions(1);
+            questionList = dbHelper.getAllQuestions(1);
         }
         else{
             questionList = dbHelper.getAllQuestions(2);

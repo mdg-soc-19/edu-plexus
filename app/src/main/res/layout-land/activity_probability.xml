@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +21,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView4"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -30,26 +31,26 @@
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="253dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/almendra_sc"
-                    android:text="Rotational Motion"
-                    android:textSize="28sp" />
+                    android:text="@string/Probability"
+                    android:textSize="48sp" />
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="392dp"
-                    android:layout_height="187dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="598dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="50dp"
-                    app:srcCompat="@drawable/rotmotion" />
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/probability" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,25 +58,25 @@
 
                 <TextView
                     android:id="@+id/textView1212"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/almendra_sc"
-                    android:text="Laws Of Motion"
-                    android:textSize="28sp" />
+                    android:text="Matrices ANd Determinants"
+                    android:textSize="48sp" />
 
                 <ImageView
                     android:id="@+id/imageView656"
-                    android:layout_width="384dp"
-                    android:layout_height="216dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="527dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="50dp"
-                    app:srcCompat="@drawable/lawsofmotion" />
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/matrices" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,25 +84,25 @@
 
                 <TextView
                     android:id="@+id/textView12122"
-                    android:layout_width="173dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/almendra_sc"
-                    android:text="Kinematics"
-                    android:textSize="28sp" />
+                    android:text="Quadratic Equation"
+                    android:textSize="48sp" />
 
                 <ImageView
                     android:id="@+id/imageView65632"
-                    android:layout_width="387dp"
-                    android:layout_height="210dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="497dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="50dp"
-                    app:srcCompat="@drawable/kinematics" />
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/quadeq" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="390dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,21 +110,21 @@
 
                 <TextView
                     android:id="@+id/textView122"
-                    android:layout_width="393dp"
-                    android:layout_height="55dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/almendra_sc"
-                    android:text="Work, Power And Energy"
-                    android:textSize="28sp" />
+                    android:text="Permutation And Combination"
+                    android:textSize="48sp" />
 
                 <ImageView
                     android:id="@+id/imageView632"
-                    android:layout_width="390dp"
-                    android:layout_height="311dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="497dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="50dp"
-                    app:srcCompat="@drawable/wpe" />
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/pnc" />
             </androidx.cardview.widget.CardView>
 
         </GridLayout>

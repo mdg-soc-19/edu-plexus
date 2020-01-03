@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Mathematics extends AppCompatActivity {
+    static int mi1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,17 +18,17 @@ public class Mathematics extends AppCompatActivity {
         v1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, Integration.class);
-                startActivity(i);
+                setContentView(R.layout.activity_integration);
+                mi1 = 1;
             }
         });
         View v2;
-        v2 = findViewById(R.id.cardViewProbability);
+        v2 = findViewById(R.id.cardViewProbability);//This is for Algebra Part.
         v2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, Probability.class);
-                startActivity(i);
+                setContentView(R.layout.activity_probability);
+                mi1 = 1;
             }
         });
 
@@ -36,8 +37,8 @@ public class Mathematics extends AppCompatActivity {
         v3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, Geometry3D.class);
-                startActivity(i);
+                setContentView(R.layout.activity_geometry3_d);
+                mi1 = 1;
             }
         });
         View v4;
@@ -45,8 +46,8 @@ public class Mathematics extends AppCompatActivity {
         v4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, trigonometry.class);
-                startActivity(i);
+               setContentView(R.layout.activity_trigonometry);
+               mi1 = 1;
             }
         });
         View v5;
@@ -54,8 +55,8 @@ public class Mathematics extends AppCompatActivity {
         v5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, ConicSection.class);
-                startActivity(i);
+               setContentView(R.layout.activity_conic_section);
+               mi1 = 1;
             }
         });
         View v6;
@@ -63,12 +64,21 @@ public class Mathematics extends AppCompatActivity {
         v6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mathematics.this, DifferentialCalculus.class);
-                startActivity(i);
+                setContentView(R.layout.activity_differential_calculus);
+                mi1 = 1;
             }
         });
-
-
+    }
+    public void onBackPressed() {
+        if(mi1 == 1){
+            Intent i = new Intent(this,Mathematics.class);
+            startActivity(i);
+            mi1 = 0;
+        }
+        else{
+            Intent i = new Intent(this,FormulaDeck.class);
+            startActivity(i);
+        }
 
     }
 }

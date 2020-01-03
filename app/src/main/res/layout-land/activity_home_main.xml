@@ -33,7 +33,7 @@
         <GridLayout
             android:id="@+id/gridLayout"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="900dp"
             android:columnCount="2"
             android:padding="14dp"
             android:rowCount="2"
@@ -220,7 +220,47 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/OnlineVideos"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Online Video Lectures"
+                        android:textColor="#ffffff"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_conversion_absoluteHeight="31dp"
+                        tools:layout_conversion_absoluteWidth="154dp"
+                        tools:layout_editor_absoluteX="21dp"
+                        tools:layout_editor_absoluteY="334dp" />
+
+                    <ImageView
+                        android:id="@+id/OnlineVideo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/onlinevideos" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </GridLayout>
         <Button

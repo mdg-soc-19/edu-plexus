@@ -2,11 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mdg_soc_eduplexus">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,26 +14,9 @@
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".OnlineVideos"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".QuestionAnswer" />
-        <activity android:name=".ModernPhysics" />
-        <activity android:name=".Magnetism" />
-        <activity android:name=".WaveTheory" />
-        <activity android:name=".Thermodynamics" />
-        <activity android:name=".ElelctrostaticsAndElectricity" />
-        <activity android:name=".Mechanics" />
-        <activity android:name=".ConicSection" />
-        <activity android:name=".DifferentialCalculus" />
-        <activity android:name=".trigonometry" />
-        <activity
-            android:name=".Geometry3D"
-            android:label="@string/Geometry" />
-        <activity
-            android:name=".Probability"
-            android:label="Algebra" />
-        <activity
-            android:name=".Integration"
-            android:label="@string/Integration" />
         <activity
             android:name=".Mathematics"
             android:label="@string/Maths" />
@@ -45,7 +27,7 @@
             android:name=".Chemistry"
             android:label="@string/Chemistry" />
         <activity
-            android:name=".FoemulaDeck"
+            android:name=".FormulaDeck"
             android:label="Formula Deck" />
         <activity
             android:name=".OnlineTests"

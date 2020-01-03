@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Physics extends AppCompatActivity {
+    static int pi1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +18,8 @@ public class Physics extends AppCompatActivity {
         v1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this, Mechanics.class);
-                startActivity(i);
+                setContentView(R.layout.activity_mechanics);
+                pi1 = 1;
             }
         });
         View v2;
@@ -26,8 +27,8 @@ public class Physics extends AppCompatActivity {
         v2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this, Thermodynamics.class);
-                startActivity(i);
+                setContentView(R.layout.activity_thermodynamics);
+                pi1 = 1;
             }
         });
 
@@ -36,8 +37,8 @@ public class Physics extends AppCompatActivity {
         v3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this, Magnetism.class);
-                startActivity(i);
+                setContentView(R.layout.activity_magnetism);
+                pi1 = 1;
             }
         });
         View v4;
@@ -45,8 +46,8 @@ public class Physics extends AppCompatActivity {
         v4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this, WaveTheory.class);
-                startActivity(i);
+                setContentView(R.layout.activity_wave_theory);
+                pi1 = 1;
             }
         });
         View v5;
@@ -54,8 +55,8 @@ public class Physics extends AppCompatActivity {
         v5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this, ElelctrostaticsAndElectricity.class);
-                startActivity(i);
+                setContentView(R.layout.activity_elelctrostatics_and_electricity);
+                pi1 = 1;
             }
         });
         View v6;
@@ -63,9 +64,21 @@ public class Physics extends AppCompatActivity {
         v6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Physics.this,ModernPhysics.class);
-                startActivity(i);
+                setContentView(R.layout.activity_modern_physics);
+                pi1 = 1;
             }
         });
+    }
+    public void onBackPressed() {
+        if(pi1 == 1){
+            Intent i = new Intent(this,Physics.class);
+            startActivity(i);
+            pi1 = 0;
+        }
+        else{
+            Intent i = new Intent(this,FormulaDeck.class);
+            startActivity(i);
+        }
+
     }
 }

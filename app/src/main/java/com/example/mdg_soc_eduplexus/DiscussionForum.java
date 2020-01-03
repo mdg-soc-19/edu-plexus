@@ -26,7 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 public class DiscussionForum extends AppCompatActivity {
     private  static int SIGN_IN_REQUEST_CODE = 1;
-    private FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference())
+    private FirebaseListOptions<ChatMessage> listOptions;
+    private FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(listOptions)
     {
         @Override
         protected void populateView(View v, ChatMessage model, int position) {

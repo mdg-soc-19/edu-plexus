@@ -11,7 +11,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class FoemulaDeck extends AppCompatActivity {
+public class FormulaDeck extends AppCompatActivity {
 
 
     @Override
@@ -25,23 +25,29 @@ public class FoemulaDeck extends AppCompatActivity {
         v1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(FoemulaDeck.this,Mathematics.class);
+                Intent i = new Intent(FormulaDeck.this,Mathematics.class);
                 startActivity(i);
             }
         });
         v2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(FoemulaDeck.this,Physics.class);
+                Intent i = new Intent(FormulaDeck.this,Physics.class);
                 startActivity(i);
             }
         });
         v3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(FoemulaDeck.this,Chemistry.class);
+                Intent i = new Intent(FormulaDeck.this,Chemistry.class);
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this,HomeMain.class);
+        startActivity(i);
     }
 }
