@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mdg_soc_eduplexus">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo2"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo2"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design">
+        <activity android:name=".OnlineVideos"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".QuestionAnswer" />
+        <activity
+            android:name=".Mathematics"
+            android:label="@string/Maths" />
+        <activity
+            android:name=".Physics"
+            android:label="@string/Physics" />
+        <activity
+            android:name=".Chemistry"
+            android:label="@string/Chemistry" />
+        <activity
+            android:name=".FormulaDeck"
+            android:label="Formula Deck" />
+        <activity
+            android:name=".OnlineTests"
+            android:label="Online Tests" />
+        <activity
+            android:name=".EduPlanner"
+            android:label="Edu-Planner" />
+        <activity
+            android:name=".DiscussionForum"
+            android:label="Discussion Forum" />
+        <activity
+            android:name=".HomeMain"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

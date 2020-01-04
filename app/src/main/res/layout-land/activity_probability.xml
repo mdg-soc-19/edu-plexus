@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="1"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/almendra_sc"
+                    android:text="@string/Probability"
+                    android:textSize="48sp" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="598dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/probability" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+                <TextView
+                    android:id="@+id/textView1212"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/almendra_sc"
+                    android:text="Matrices ANd Determinants"
+                    android:textSize="48sp" />
+
+                <ImageView
+                    android:id="@+id/imageView656"
+                    android:layout_width="match_parent"
+                    android:layout_height="527dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/matrices" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+                <TextView
+                    android:id="@+id/textView12122"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/almendra_sc"
+                    android:text="Quadratic Equation"
+                    android:textSize="48sp" />
+
+                <ImageView
+                    android:id="@+id/imageView65632"
+                    android:layout_width="match_parent"
+                    android:layout_height="497dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/quadeq" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+                <TextView
+                    android:id="@+id/textView122"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/almendra_sc"
+                    android:text="Permutation And Combination"
+                    android:textSize="48sp" />
+
+                <ImageView
+                    android:id="@+id/imageView632"
+                    android:layout_width="match_parent"
+                    android:layout_height="497dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/pnc" />
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
