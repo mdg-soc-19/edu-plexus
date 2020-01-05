@@ -32,4 +32,5 @@
     <string name="Trigonometry">Trigonometry</string>
     <string name="Conic">Conic Section</string>
     <string name="DifferentialCalculus">Differential Calculus</string>
+    <string name="save">Save</string>
 </resources>

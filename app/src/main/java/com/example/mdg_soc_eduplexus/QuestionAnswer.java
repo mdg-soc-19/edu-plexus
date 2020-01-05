@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -33,6 +38,7 @@ public class QuestionAnswer extends AppCompatActivity {
     private RadioButton rb3;
     private Button buttonConfirmNext;
     private Button buttonEndTest;
+    MemberForQuiz member;
 
     private ColorStateList textColorDefaultRb;
     private ColorStateList textColorDefaultCd;
@@ -45,6 +51,7 @@ public class QuestionAnswer extends AppCompatActivity {
     private List<QuestionGenerator> questionList;
     private int questionCounter;
     private int questionCountTotal;
+    FirebaseAuth mAuth;
     private QuestionGenerator currentQuestion;
 
     private int score;
@@ -64,9 +71,13 @@ public class QuestionAnswer extends AppCompatActivity {
         rb1 = findViewById(R.id.radio_button1);
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
-        buttonEndTest = findViewById(R.id.endTest);
+        mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        member = new MemberForQuiz();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef =  database.getReference("Member");
+        buttonEndTest = findViewById(R.id.end_test);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
-
         textColorDefaultRb = rb1.getTextColors();
         textColorDefaultCd = textViewCountDown.getTextColors();
         view1 = findViewById(R.id.cardViewTest1);
@@ -77,8 +88,14 @@ public class QuestionAnswer extends AppCompatActivity {
         if (testNumber == 1){
             questionList = dbHelper.getAllQuestions(1);
         }
-        else{
+        else if(testNumber == 2){
             questionList = dbHelper.getAllQuestions(2);
+        }
+        else if(testNumber == 3){
+            questionList = dbHelper.getAllQuestions(3);
+        }
+        else {
+            questionList = dbHelper.getAllQuestions(4);
         }
         questionCountTotal = 4;
         Collections.shuffle(questionList);
@@ -106,6 +123,9 @@ public class QuestionAnswer extends AppCompatActivity {
                 countDownTimer.cancel();
                 Intent i = new Intent(QuestionAnswer.this,OnlineTests.class);
                 startActivity(i);
+                member.setScore(score);
+                member.setEmailId(user.getEmail());
+                myRef.push().setValue(member);
             }
         });
     }
@@ -172,14 +192,16 @@ public class QuestionAnswer extends AppCompatActivity {
     }
     private void checkAnswer() {
         answered = true;
-
         RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbSelected) + 1;
 
         if (answerNr == currentQuestion.getAnswerNr()) {
-            score++;
-            textViewScore.setText("Score: " + score);
+            score = score + 4;
         }
+        else {
+            score--;
+        }
+        textViewScore.setText(score+"/"+16);
 
         showSolution();
     }

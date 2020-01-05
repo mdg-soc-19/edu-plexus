@@ -1,53 +1,66 @@
 package com.example.mdg_soc_eduplexus;
 
+import android.provider.ContactsContract;
+import android.widget.EditText;
+
+import java.sql.Time;
+import java.util.Date;
+
 public class Events {
-    String EVENTS,TIME,DATE,MONTH,YEAR;
-
-    public Events(String EVENTS, String TIME, String DATE, String MONTH, String YEAR) {
-        this.EVENTS = EVENTS;
-        this.TIME = TIME;
-        this.DATE = DATE;
-        this.MONTH = MONTH;
-        this.YEAR = YEAR;
+private String EventName;
+private String date;
+private String Duration;
+private String time;
+private String Email;
+    public Events() {
     }
 
-    public String getEVENTS() {
-        return EVENTS;
+    public Events(String eventName, String date, String duration, String time, String Email) {
+        EventName = eventName;
+        this.date = date;
+        Duration = duration;
+        this.time = time;
+        this.Email = Email;
     }
 
-    public void setEVENTS(String EVENTS) {
-        this.EVENTS = EVENTS;
+    public String getEventName() {
+        return EventName;
     }
 
-    public String getTIME() {
-        return TIME;
+    public void setEventName(String eventName) {
+        EventName = eventName;
     }
 
-    public void setTIME(String TIME) {
-        this.TIME = TIME;
+    public String getDate() {
+        return date;
     }
 
-    public String getDATE() {
-        return DATE;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setDATE(String DATE) {
-        this.DATE = DATE;
+    public void setEmail(String email) {
+        Email = email;
     }
 
-    public String getMONTH() {
-        return MONTH;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setMONTH(String MONTH) {
-        this.MONTH = MONTH;
+    public String getDuration() {
+        return Duration;
     }
 
-    public String getYEAR() {
-        return YEAR;
+    public void setDuration(String duration) {
+        Duration = duration;
     }
 
-    public void setYEAR(String YEAR) {
-        this.YEAR = YEAR;
+    public String  getTime() {
+        return time;
     }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
 }
