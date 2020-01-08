@@ -65,20 +65,20 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         QuestionGenerator q8 = new QuestionGenerator("B is correct","A","B","C",2,2);
         addQuestion(q8);
         QuestionGenerator q9 = new QuestionGenerator("Most Abundant RadioActive Element on Earth ","Pu","U","Po",2,3);
-        QuestionGenerator q10 = new QuestionGenerator("What happens to Litmus Paper when dipped in Acid","Turns Red","Turns Blue","Fades Away",1,3);
-        QuestionGenerator q11= new QuestionGenerator("Which Orbital has no directional Orientation","s","p","d",1,3);
-        QuestionGenerator q12= new QuestionGenerator("C is correct","A","B","C",3,3);
-        QuestionGenerator q13 = new QuestionGenerator("1+1 = ?","3","1","2",3,4);
-        QuestionGenerator q14= new QuestionGenerator("Find the Rank of QWERTY in the dictionary if only the words formed by the given letters are used to form words in that dictionary:","54","90","None of These",3,4);
-        QuestionGenerator q15= new QuestionGenerator("Find SquareRoot of 3+18i","3.25946986 + 2.76118522 i","3.53367132 + 2.54692618 i","2.49868295 + 1.80094878 i",1,4);
-        QuestionGenerator q16 = new QuestionGenerator("Find the probability of a solar eclipse happening in one place in one leap year","0.0455","0.0327","0.00942",2,4);
         addQuestion(q9);
+        QuestionGenerator q10 = new QuestionGenerator("What happens to Litmus Paper when dipped in Acid","Turns Red","Turns Blue","Fades Away",1,3);
         addQuestion(q10);
+        QuestionGenerator q11= new QuestionGenerator("Which Orbital has no directional Orientation","s","p","d",1,3);
         addQuestion(q11);
+        QuestionGenerator q12= new QuestionGenerator("C is correct","A","B","C",3,3);
         addQuestion(q12);
+        QuestionGenerator q13 = new QuestionGenerator("1+1 = ?","3","1","2",3,4);
         addQuestion(q13);
+        QuestionGenerator q14= new QuestionGenerator("Find the Rank of QWERTY in the dictionary if only the words formed by the given letters are used to form words in that dictionary:","54","90","None of These",3,4);
         addQuestion(q14);
+        QuestionGenerator q15= new QuestionGenerator("Find SquareRoot of 3+18i","3.25946986 + 2.76118522 i","3.53367132 + 2.54692618 i","2.49868295 + 1.80094878 i",1,4);
         addQuestion(q15);
+        QuestionGenerator q16 = new QuestionGenerator("Find the probability of a solar eclipse happening in one place in one leap year","0.0455","0.0327","0.00942",2,4);
         addQuestion(q16);
     }
     private void addQuestion(QuestionGenerator question) {

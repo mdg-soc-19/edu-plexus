@@ -1,17 +1,13 @@
 package com.example.mdg_soc_eduplexus;
 
 import android.app.Activity;
-import android.content.Context;
-import android.icu.text.Transliterator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -37,7 +33,7 @@ public class CustomAdapterForChats extends ArrayAdapter<ChatMessage> {
         TextView t2 = view.findViewById(R.id.message_time);
         TextView t3 = view.findViewById(R.id.message_user);
 
-        long UnixTime =chatMessage.getMessageTime()*1000;
+        long UnixTime =chatMessage.getMessageTime();
         java.util.Date d = new java.util.Date(UnixTime);
         String s1 = String.valueOf(d);
         t1.setText(chatMessage.getMessageText());

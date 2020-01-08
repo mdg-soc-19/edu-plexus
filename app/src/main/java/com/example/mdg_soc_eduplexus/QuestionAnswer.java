@@ -125,6 +125,7 @@ public class QuestionAnswer extends AppCompatActivity {
                 startActivity(i);
                 member.setScore(score);
                 member.setEmailId(user.getEmail());
+                member.setTestno(testNumber);
                 myRef.push().setValue(member);
             }
         });

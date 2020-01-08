@@ -93,9 +93,10 @@
 
     <Button
         android:id="@+id/end_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="667dp"
+        android:layout_height="46dp"
         android:layout_below="@id/button_confirm_next"
-        android:layout_marginTop="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-5dp"
         android:text="End test" />
 </RelativeLayout>
