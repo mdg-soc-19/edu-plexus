@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_below="@id/text_view_test_no"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -93,10 +94,12 @@
 
     <Button
         android:id="@+id/end_test"
-        android:layout_width="667dp"
-        android:layout_height="46dp"
+        android:layout_width="375dp"
+        android:layout_height="67dp"
         android:layout_below="@id/button_confirm_next"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="-5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="113dp"
         android:text="End test" />
 </RelativeLayout>

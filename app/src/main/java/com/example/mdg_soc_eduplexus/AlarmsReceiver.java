@@ -16,7 +16,7 @@ public class AlarmsReceiver extends BroadcastReceiver {
             String message = intent.getStringExtra("todo");
 
             // When notification is tapped, call MainActivity.
-            Intent mainIntent = new Intent(context, MainActivity.class);
+            Intent mainIntent = new Intent(context, EduPlanner.class);
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0, mainIntent, 0);
 
             NotificationManager myNotificationManager =

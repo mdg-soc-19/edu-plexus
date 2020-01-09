@@ -43,7 +43,7 @@ public class Chemistry extends AppCompatActivity {
     }
     public void onBackPressed() {
         if(ci1 == 1){
-            Intent i = new Intent(this,Mathematics.class);
+            Intent i = new Intent(this,Chemistry.class);
             startActivity(i);
             ci1 = 0;
         }

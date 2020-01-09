@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -52,58 +53,72 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class EduPlanner extends AppCompatActivity implements View.OnClickListener {
+public class EduPlanner extends AppCompatActivity {
+    private Button buttonAdd;
+    private Spinner spinnerSubjects;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String email = user.getEmail();
 
-    private int notificationId = 1;
+    DatabaseReference databaseReference;
+
+    private ListView listView;
+    private List<Events> eventsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edu_planner);
-        findViewById(R.id.setBtn).setOnClickListener(this);
-        findViewById(R.id.cancelBtn).setOnClickListener(this);
+
+        email = email.replaceAll("[^a-zA-Z0-9]", "");
+        databaseReference = FirebaseDatabase.getInstance().getReference("EventsList " + email);
+        spinnerSubjects = findViewById(R.id.spinner);
+        buttonAdd = findViewById(R.id.button);
+
+        listView = findViewById(R.id.list_of_events);
+
+        eventsList = new ArrayList<>();
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addEvents();
+            }
+        });
     }
 
     @Override
-    public void onClick(View view) {
-        EditText editText = findViewById(R.id.editText);
-        TimePicker timePicker = findViewById(R.id.timePicker);
+    protected void onStart() {
+        super.onStart();
 
-        // Set notificationId & text.
-        Intent intent = new Intent(EduPlanner.this, AlarmsReceiver.class);
-        intent.putExtra("notificationId", notificationId);
-        intent.putExtra("todo", editText.getText().toString());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-        // getBroadcast(context, requestCode, intent, flags)
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(EduPlanner.this, 0,
-                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                eventsList.clear();
 
-        AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+                for(DataSnapshot eventSnapshot : dataSnapshot.getChildren()){
+                    Events events = eventSnapshot.getValue(Events.class);
+                    eventsList.add(events);
+                }
 
-        switch (view.getId()) {
-            case R.id.setBtn:
-                int hour = timePicker.getCurrentHour();
-                int minute = timePicker.getCurrentMinute();
+                EventsList adapter = new EventsList(EduPlanner.this,eventsList);
+                listView.setAdapter(adapter);
+            }
 
-                // Create time.
-                Calendar startTime = Calendar.getInstance();
-                startTime.set(Calendar.HOUR_OF_DAY, hour);
-                startTime.set(Calendar.MINUTE, minute);
-                startTime.set(Calendar.SECOND, 0);
-                long alarmStartTime = startTime.getTimeInMillis();
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                // Set alarm.
-                // set(type, milliseconds, intent)
-                alarm.set(AlarmManager.RTC_WAKEUP, alarmStartTime, alarmIntent);
+            }
+        });
+    }
 
-                Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
-                break;
+    private void addEvents(){
+        String Subjects = spinnerSubjects.getSelectedItem().toString();
 
-            case R.id.cancelBtn:
-                alarm.cancel(alarmIntent);
-                Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
-                break;
-        }
+        String EventName = "Hello World";
+            String id = databaseReference.push().getKey();
 
+            Events events = new Events(id,EventName,Subjects);
+
+            databaseReference.child(id).setValue(events);
     }
 }

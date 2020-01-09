@@ -76,7 +76,8 @@ public class OnlineTests extends AppCompatActivity {
                 startActivity(intToMain);
                 return true;
             case R.id.show_scorebaoard:
-                Intent i = new Intent(OnlineTests.this,ScoreBoard.class);
+                Intent i = new Intent();
+                startActivity(i);
                 return true;
         }
         return true;

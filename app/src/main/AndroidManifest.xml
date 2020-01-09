@@ -15,7 +15,6 @@
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design">
-        <activity android:name=".ScoreBoard"></activity>
         <activity android:name=".OnlineVideos" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".QuestionAnswer" />
@@ -37,7 +36,7 @@
         <activity
             android:name=".EduPlanner"
             android:label="Edu-Planner"
-            android:theme="@style/Theme.Design.NoActionBar" />
+            />
         <activity
             android:name=".DiscussionForum"
             android:label="Discussion Forum" />
