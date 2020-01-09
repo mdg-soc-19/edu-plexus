@@ -3,112 +3,119 @@ package com.example.mdg_soc_eduplexus;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.text.format.DateFormat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.common.ChangeEventType;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
+import com.google.android.gms.common.api.Response;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DiscussionForum extends AppCompatActivity {
-    private  static int SIGN_IN_REQUEST_CODE = 1;
-    private FirebaseListOptions<ChatMessage> listOptions;
-    private FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(listOptions)
-    {
-        @Override
-        protected void populateView(View v, ChatMessage model, int position) {
 
-            //Get references to the views of list_item.xml
-            TextView messageText, messageUser, messageTime;
-            messageText =  v.findViewById(R.id.message_text);
-            messageUser =  v.findViewById(R.id.message_user);
-            messageTime =  v.findViewById(R.id.message_time);
+    private ImageButton postdatabutton;
+    private EditText Messaging;
+    private ListView listView;
+    private List<ChatMessage> chatMessageList;
+    private CustomAdapterForChats customAdapterForChats;
+    DatabaseReference databaseReference;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    final FirebaseUser user = mAuth.getCurrentUser();
 
-            messageText.setText(model.getMessageText());
-            messageUser.setText(model.getMessageUser());
-            messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getMessageTime()));
-
-        }
-    };
-    RelativeLayout activity_discussion_forum;
-    FloatingActionButton fab;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SIGN_IN_REQUEST_CODE){
-            if (resultCode == RESULT_OK){
-                Snackbar.make(activity_discussion_forum,"SuccessFully Signed in. Welcome to Discussion Forum",Snackbar.LENGTH_SHORT).show();
-                displayChatMessage();
-            }
-            else {
-                Snackbar.make(activity_discussion_forum,"We couldn't sign you in.Please try again later",Snackbar.LENGTH_SHORT ).show();
-                finish();
-            }
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion_forum);
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Chats");
+        listView = findViewById(R.id.list_of_messages);
+        postdatabutton = findViewById(R.id.fab);
+        Messaging = findViewById(R.id.input);
+        chatMessageList = new ArrayList<>();
+        customAdapterForChats = new CustomAdapterForChats(DiscussionForum.this, chatMessageList);
+
+        postdatabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText input = findViewById(R.id.input);
-                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),FirebaseAuth.getInstance().getCurrentUser().getEmail()));
-                input.setText("");
+                saveData();
+                Messaging.setText("");
             }
         });
-        activity_discussion_forum = findViewById(R.id.activity_discussion_forum);
-        if(FirebaseAuth.getInstance().getCurrentUser() == null){
-            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(),SIGN_IN_REQUEST_CODE);
-        }
-        else{
-            Snackbar.make(activity_discussion_forum,"Welcome"+FirebaseAuth.getInstance().getCurrentUser().getEmail(),Snackbar.LENGTH_SHORT).show();
-        }
-        displayChatMessage();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
-        return true;
-    }
+    protected void onStart() {
+        super.onStart();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_sign_out)
-        {
-            AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                   Snackbar.make(activity_discussion_forum,"You have been signed out.",Snackbar.LENGTH_SHORT).show();
-                   finish();
+                chatMessageList.clear();
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    ChatMessage chatMessage = dataSnapshot1.getValue(ChatMessage.class);
+                    chatMessageList.add(chatMessage);
                 }
-            });
-        }
-        return true;
+                listView.setAdapter(customAdapterForChats);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
-    private void displayChatMessage() {
+    public void saveData(){
+        String Message = Messaging.getText().toString();
 
-        ListView listOfMessage = findViewById(R.id.list_of_messages);
-        listOfMessage.setAdapter(adapter);
+        String key = databaseReference.push().getKey();
+        ChatMessage chatMessage = new ChatMessage(Message,user.getEmail());
+
+        databaseReference.child(key).setValue(chatMessage);
     }
 }

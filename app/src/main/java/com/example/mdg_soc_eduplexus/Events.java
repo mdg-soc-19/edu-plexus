@@ -1,53 +1,29 @@
 package com.example.mdg_soc_eduplexus;
 
 public class Events {
-    String EVENTS,TIME,DATE,MONTH,YEAR;
+    private String EventsID;
+    private String EventName;
+    private String subject;
 
-    public Events(String EVENTS, String TIME, String DATE, String MONTH, String YEAR) {
-        this.EVENTS = EVENTS;
-        this.TIME = TIME;
-        this.DATE = DATE;
-        this.MONTH = MONTH;
-        this.YEAR = YEAR;
+    public Events(){
+
     }
 
-    public String getEVENTS() {
-        return EVENTS;
+    public Events(String eventsID, String eventName, String subject) {
+        EventsID = eventsID;
+        EventName = eventName;
+        this.subject = subject;
     }
 
-    public void setEVENTS(String EVENTS) {
-        this.EVENTS = EVENTS;
+    public String getEventsID() {
+        return EventsID;
     }
 
-    public String getTIME() {
-        return TIME;
+    public String getEventName() {
+        return EventName;
     }
 
-    public void setTIME(String TIME) {
-        this.TIME = TIME;
-    }
-
-    public String getDATE() {
-        return DATE;
-    }
-
-    public void setDATE(String DATE) {
-        this.DATE = DATE;
-    }
-
-    public String getMONTH() {
-        return MONTH;
-    }
-
-    public void setMONTH(String MONTH) {
-        this.MONTH = MONTH;
-    }
-
-    public String getYEAR() {
-        return YEAR;
-    }
-
-    public void setYEAR(String YEAR) {
-        this.YEAR = YEAR;
+    public String getSubject() {
+        return subject;
     }
 }
